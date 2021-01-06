@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from "./components/App"
+import store from './store';
 
+// react-redux의 subscribe기능을 사용하기 위해 provider을 사용
+// subscribe자체가 store를 구독하는 것. 따라서 Provider에 store을 props로 내릴 것임.
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

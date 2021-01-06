@@ -1,13 +1,14 @@
 // export default () => "Home";
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import ToDo from "../components/ToDo";
 import { actionCreators } from "../store";
 
 function Home({ toDos, addToDo }) {  // todos: mapStateToProp, addToDo: mapDispatchToProp && 객체로 감싸주는 이유는 props 객체 안에 "일부"로 map~~함수로"추가" toDos와 addToDo를 가져오는 것이기 때문
   const [text, setText] = useState("");
   function onChange(e) {
     setText(e.target.value);
-    // setText(""); // 입력, 제출, 다시 인풋칸을 빈칸으로.
+
   }
   function onSubmit(e) {
     e.preventDefault();
@@ -24,7 +25,11 @@ function Home({ toDos, addToDo }) {  // todos: mapStateToProp, addToDo: mapDispa
         <input type="text" value={text} onChange={onChange} />
         <button>Add</button>
       </form>
-      <ul>{JSON.stringify(toDos)}</ul>
+      <ul>
+        {toDos.map(toDo => (
+          <ToDo {...toDo} key={toDo.id} />
+        ))}
+      </ul>
     </>
   );
 }

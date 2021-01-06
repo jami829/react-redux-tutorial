@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { actionCreators } from "../store";
 
-function ToDo({ text, onBtnClick }) {  // Home.js와 동일한 이유로 객체로 감싸주는 것.
+function ToDo({ text, onBtnClick, id }) {  // Home.js와 동일한 이유로 객체로 감싸주는 것.
   return (
     <li>
-      {text} <button onClick={onBtnClick}>삭제</button>
+      <Link to={`/${id}`}>
+        {text} <button onClick={onBtnClick}>삭제</button>
+      </Link>
     </li>
   );
 }

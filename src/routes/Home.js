@@ -66,7 +66,7 @@ export default connect(null, mapDispatchToProps)(Home);
 
 /*
 connect : components들을 store에 연결시켜줌. & connect는 두가지의 argument를 가진다.
-1. mapStateToProps: store에 저장된 state를 store.getStore하여 component에 전달
-2. mapDistpatchToProps: store.dispatch 어떻게 하면 component가 dispatch 동작도 할 수 있을지에 대해 살펴볼꺼야.
+1. mapStateToProps: = getState,  store에 저장된 state를 store.getStore하여 component에 전달
+2. mapDistpatchToProps: = dispatch,  store.dispatch 어떻게 하면 component가 dispatch 동작도 할 수 있을지에 대해 살펴볼꺼야.
 
 */
